@@ -27,7 +27,7 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  titleElement.innerHTML = "Yayyy!!";
+  titleElement.innerHTML = "If I’m being honest my favourite part of all this has always been you I don’t know where this leads, I just know that meeting you changed the way I look at things and I’m grateful for that";
   buttonsContainer.classList.add("hidden");
   changeImage("yes");
 }
@@ -44,9 +44,9 @@ function generateMessage(noCount) {
   const messages = [
     "No",
     "Are you sure?",
-    "Pookie please",
+    "Princess pleaseeeeeeee",
     "Don't do this to me :(",
-    "You're breaking my heart",
+    "Are you sureeeeeee?",
     "I'm gonna cry...",
   ];
 
