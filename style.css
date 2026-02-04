@@ -1,68 +1,70 @@
-"use strict";
-
-const titleElement = document.querySelector(".title");
-const buttonsContainer = document.querySelector(".buttons");
-const yesButton = document.querySelector(".btn--yes");
-const noButton = document.querySelector(".btn--no");
-const catImg = document.querySelector(".cat-img");
-
-const MAX_IMAGES = 5;
-
-let play = true;
-let noCount = 0;
-
-yesButton.addEventListener("click", handleYesClick);
-
-noButton.addEventListener("click", function () {
-  if (play) {
-    noCount++;
-    // Make the puppy image the default after every "No" click
-    catImg.src = "img/puppyeyes.jpg";
-    resizeYesButton();
-    updateNoButtonText();
-    if (noCount === MAX_IMAGES) {
-      play = false;
-    }
-  }
-});
-
-function handleYesClick() {
-  titleElement.innerHTML = "Yayyy!!";
-  buttonsContainer.classList.add("hidden");
-  changeImage("yes");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-function resizeYesButton() {
-  const computedStyle = window.getComputedStyle(yesButton);
-  const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
-  const newFontSize = fontSize * 1.6;
-
-  yesButton.style.fontSize = `${newFontSize}px`;
+html {
+  font-size: 62.5%;
 }
 
-function generateMessage(noCount) {
-  const messages = [
-    "No",
-    "Are you sure?",
-    "Pookie please",
-    "Don't do this to me :(",
-    "You're breaking my heart",
-    "I'm gonna cry...",
-  ];
-
-  const messageIndex = Math.min(noCount, messages.length - 1);
-  return messages[messageIndex];
+body {
+  background-color: #fff0f6;
+  font-family: "Protest Riot", sans-serif;
 }
 
-function changeImage(image) {
-  if (image === "yes") {
-    catImg.src = "img/WhatsApp Image 2026-02-03 at 7.57.08 PM.jpeg";
-    return;
-  }
-  const index = Number(image) || 1;
-  catImg.src = `img/WhatsApp Image 2026-02-03 at 1.38.47 PM-${index}.jpg`;
+.container {
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-function updateNoButtonText() {
-  noButton.innerHTML = generateMessage(noCount);
+.cat-img {
+  width: 30rem;
+  height: 30rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 3.6rem;
+  color: #f53699;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1.5rem 2.5rem;
+  border: none;
+  border-radius: 4px;
+
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn--yes {
+  background-color: #40c057;
+}
+
+.btn--no {
+  background-color: #f03e3e;
+}
+
+.hidden {
+  display: none;
 }
