@@ -16,8 +16,8 @@ yesButton.addEventListener("click", handleYesClick);
 noButton.addEventListener("click", function () {
   if (play) {
     noCount++;
-    const imageIndex = Math.min(noCount, MAX_IMAGES);
-    changeImage(imageIndex);
+    // Make the puppy image the default after every "No" click
+    catImg.src = "img/puppyeyes.jpg";
     resizeYesButton();
     updateNoButtonText();
     if (noCount === MAX_IMAGES) {
@@ -27,7 +27,7 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  titleElement.innerHTML = "Yayyy!! :3";
+  titleElement.innerHTML = "Yayyy!!";
   buttonsContainer.classList.add("hidden");
   changeImage("yes");
 }
@@ -56,7 +56,7 @@ function generateMessage(noCount) {
 
 function changeImage(image) {
   if (image === "yes") {
-    catImg.src = "img/WhatsApp Image 2026-02-03 at 1.38.42 PM.jpeg";
+    catImg.src = "img/WhatsApp Image 2026-02-03 at 7.57.08 PM.jpeg";
     return;
   }
   const index = Number(image) || 1;
